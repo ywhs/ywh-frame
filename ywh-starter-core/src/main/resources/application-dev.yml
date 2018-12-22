@@ -1,0 +1,75 @@
+#在这里我没有写driver-class-name: com.mysql.jdbc.Driver这个驱动被弃用了  使用新版com.mysql.cj.jdbc.Driver
+#控制台提示说自动帮我们找相应的驱动，一般无需手动加载，所以我注释掉了
+spring:
+  datasource:
+    # mysql数据库接地址
+#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化Druid
+    druid:
+      # mysql数据库接地址
+      url: jdbc:mysql://127.0.0.1:3306/ywh_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      # 监控页面的用户名和密码 以及页面地址
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+        enabled: true
+        url-pattern: /druid/*
+      # 初始化连接大小   默认：0
+      initial-size: 5
+      # 最小空闲连接数 默认：0
+      min-idle: 5
+      # 最大连接数  默认：8
+      max-active: 20
+      # 获取连接等待超时的时间(毫秒) 默认：-1
+      max-wait: 60000
+      # 查询超时时间(秒)
+      query-timeout: 90
+      # 用来检测连接是否有效的sql，要求是一个查询语句
+      validation-query: SELECT 1 FROM DUAL
+      # 申请连接时检测连接可用性 默认：false
+      test-on-borrow: false
+      # 归还连接检测 默认：false
+      test-on-return: false
+      # 超时是否检测连接可用性
+      test-while-idle: true
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接 (毫秒)
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间(毫秒，默认30分钟)
+      min-evictable-idle-time-millis: 300000
+      # 通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat；日志用的filter:log4j；防御sql注入的filter:wall
+      filters: stat,wall,slf4j
+      # 慢SQL记录 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+          db-type: mysql
+          # SQL合并 默认：false
+          merge-sql: false
+        wall:
+          config:
+            delete-allow: false
+            drop-table-allow: false
+          enabled: true
+          db-type: mysql
+      # 是否缓存PreparedStatement. PSCache对支持游标的数据库性能提升巨大，比如说oracle.在mysql下建议关闭.
+      pool-prepared-statements: false
+      # 每个连接上PSCache的大小
+      max-pool-prepared-statement-per-connection-size: 20
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+##mybatisPlus     http://mp.baomidou.com/#/quick-start
+#mybatis-plus:
+#  mapper-locations: classpath*:/mybatis-mappers/*
+#  #MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML 文件中可以直接使用类名，而不用使用全限定的类名
+#  type-aliases-package: com.xiyi.core.pojo
+#  # 数据库表与实体类的驼峰命名自动转换
+#  configuration:
+#    map-underscore-to-camel-case: true
