@@ -2,6 +2,7 @@ package com.ywh.core;
 
 import com.ywh.common.utils.RedisUtil;
 import com.ywh.core.dao.ExampleDao;
+import com.ywh.core.dao.UserDao;
 import com.ywh.core.entity.ExampleEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +20,9 @@ public class CoreApplicationTests {
 
 	@Autowired
 	private ExampleDao exampleDao;
+
+	@Autowired
+    private UserDao userDao;
 
 	@Test
 	public void contextLoads() {

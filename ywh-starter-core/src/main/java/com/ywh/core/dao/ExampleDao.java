@@ -2,6 +2,7 @@ package com.ywh.core.dao;
 
 import com.ywh.core.entity.ExampleEntity;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  *
  * @author YWH
  */
+@Repository
 public interface ExampleDao {
 
     @Select("select * from user")

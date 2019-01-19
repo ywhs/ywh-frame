@@ -1,8 +1,8 @@
 package com.ywh.core.dao;
 
-import com.ywh.core.entity.UserEntity;
 import com.ywh.common.base.BaseDao;
-
+import com.ywh.core.entity.UserEntity;
+import org.springframework.stereotype.Repository;
 
 
 /**
@@ -13,6 +13,7 @@ import com.ywh.common.base.BaseDao;
  *  Dao 接口
  * @author YWH
  */
+@Repository
 public interface UserDao extends BaseDao<UserEntity> {
 
 }
