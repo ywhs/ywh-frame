@@ -15,6 +15,7 @@ spring:
 #      driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
       # 监控页面的用户名和密码 以及页面地址
       stat-view-servlet:
         login-username: admin
