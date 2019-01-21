@@ -26,7 +26,7 @@ public class ExampleController {
 
 
     @GetMapping("findAll")
-    public JSONObject findAll(){
+    public Result findAll(){
         return Result.successJson(exampleService.myException());
     }
 }

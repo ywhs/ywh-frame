@@ -61,6 +61,7 @@ public class CodeGenerator {
         String userName = resource.getString("userName");
         String passWord = resource.getString("passWord");
         String setParent = resource.getString("setParent");
+        String mapperPath = resource.getString("mapperPath");
 
         //代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -117,24 +118,27 @@ public class CodeGenerator {
 
 
         //自定义配置
-        InjectionConfig cfg = new InjectionConfig() {
-            @Override
-            public void initMap() {
-                // to do nothing
-            }
-        };
-        List<FileOutConfig> focList = new ArrayList<>();
-        //mapper.xml
-        focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输入文件名称
-                return projectPath + "/ywh-starter-core/src/main/resources/mybatis-mappers/"
-                        + tableInfo.getMapperName() + "Mapper" + StringPool.DOT_XML;
-            }
-        });
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+        if(StringUtils.isNotEmpty(mapperPath)){
+            InjectionConfig cfg = new InjectionConfig() {
+                @Override
+                public void initMap() {
+                    // to do nothing
+                }
+            };
+            List<FileOutConfig> focList = new ArrayList<>();
+            //mapper.xml
+            focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+                @Override
+                public String outputFile(TableInfo tableInfo) {
+                    // 自定义输入文件名称
+                    return projectPath + mapperPath
+                            + tableInfo.getMapperName() + "Mapper" + StringPool.DOT_XML;
+                }
+            });
+            cfg.setFileOutConfigList(focList);
+            mpg.setCfg(cfg);
+        }
+
 
 
 

@@ -38,7 +38,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @GetMapping("getList")
-    public JSONObject getList(){
+    public Result getList(){
         List<T> list = service.list();
         return Result.successJson(list);
     }
@@ -49,7 +49,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @GetMapping("getPageList")
-    public JSONObject getPageList(@RequestBody BasePage pn){
+    public Result getPageList(@RequestBody BasePage pn){
         Page<T> pojo = new Page<T>(pn.getCurrent(),pn.getSize());
         IPage<T> page = service.page(pojo);
         log.info("总条数 ------> " + page.getTotal());
@@ -67,7 +67,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @PostMapping("addData")
-    public JSONObject addData(@RequestBody T pojo){
+    public Result addData(@RequestBody T pojo){
         boolean flag = service.save(pojo);
         if(flag){
             return Result.successJson("成功添加一条数据！！");
@@ -81,7 +81,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @PostMapping("addDataBatch")
-    public JSONObject addData(@RequestBody Collection<T> pojo){
+    public Result addData(@RequestBody Collection<T> pojo){
         boolean flag = service.saveBatch(pojo,500);
         if(flag){
             return Result.successJson("成功添加一组数据！！");
@@ -95,7 +95,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @PutMapping("updateById")
-    public JSONObject updateById(@RequestBody T pojo){
+    public Result updateById(@RequestBody T pojo){
         boolean flag = service.updateById(pojo);
         if(flag){
             return Result.successJson("成功修改一条数据");
@@ -111,7 +111,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @PostMapping("updateByColumn")
-    public JSONObject update(@RequestBody T pojo, @RequestParam("column") String column, @RequestParam(name = "value") String value){
+    public Result update(@RequestBody T pojo, @RequestParam("column") String column, @RequestParam(name = "value") String value){
         Wrapper<T> wrapper = Wrappers.<T>update().eq(column,value);
         boolean flag = service.update(pojo, wrapper);
         if(flag){
@@ -127,7 +127,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @DeleteMapping("deleteByColumn")
-    public JSONObject delete(@RequestParam("column") String column, @RequestParam("value") String value){
+    public Result delete(@RequestParam("column") String column, @RequestParam("value") String value){
         Wrapper<T> ew = Wrappers.<T>query().eq(column,value);
         boolean flag = service.remove(ew);
         if(flag){
@@ -142,7 +142,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @DeleteMapping("deleteById")
-    public JSONObject delete(@RequestParam("id") Integer id){
+    public Result delete(@RequestParam("id") Integer id){
         boolean flag = service.removeById(id);
         if(flag){
             return Result.successJson("成功删除一条数据");
@@ -156,7 +156,7 @@ public class BaseController<Service extends IService,T> {
      * @return 返回前端json数据
      */
     @DeleteMapping("deleteByIds")
-    public JSONObject delete(@RequestParam(value = "ids[]") List<Integer> ids){
+    public Result delete(@RequestParam(value = "ids[]") List<Integer> ids){
         boolean flag = service.removeByIds(ids);
         if(flag){
             return Result.successJson("成功删除一组数据");

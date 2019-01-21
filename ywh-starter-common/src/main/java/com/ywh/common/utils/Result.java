@@ -44,37 +44,37 @@ public class Result {
      * @param value 原始数据
      * @return json格式
      */
-    public static JSONObject successJson(Object value){
-        Result result = new Result();
-        result.setCode(BaseEnum.SUCCESS.getIndex());
-        result.setMsg(BaseEnum.SUCCESS.getMsg());
-        result.setSuccess(true);
-        result.getExtend().put("data",value);
-        return (JSONObject) JSONObject.toJSON(result);
+    public static Result successJson(Object value){
+        Result results = new Result();
+        results.setCode(BaseEnum.SUCCESS.getIndex());
+        results.setMsg(BaseEnum.SUCCESS.getMsg());
+        results.setSuccess(true);
+        results.getExtend().put("data",value);
+        return results;
     }
 
     /**
      * 失败返回的json封装体
      * @return json格式
      */
-    public static JSONObject errorJson(){
+    public static Result errorJson(){
         Result results = new Result();
         results.setCode(BaseEnum.FAIL.getIndex());
         results.setSuccess(false);
         results.setMsg(BaseEnum.FAIL.getMsg());
-        return (JSONObject) JSONObject.toJSON(results);
+        return results;
     }
 
     /**
      * 失败返回的json封装体
      * @return json格式
      */
-    public static JSONObject errorJson(String msg,Integer code){
+    public static Result errorJson(String msg,Integer code){
         Result results = new Result();
         results.setCode(code);
         results.setSuccess(false);
         results.setMsg(msg);
-        return (JSONObject) JSONObject.toJSON(results);
+        return results;
     }
 
     public int getCode() {

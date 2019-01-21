@@ -1,6 +1,5 @@
 package com.ywh.common.exception;
 
-import com.alibaba.fastjson.JSONObject;
 import com.ywh.common.base.BaseEnum;
 import com.ywh.common.utils.Result;
 import org.slf4j.Logger;
@@ -62,7 +61,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler({Exception.class})
-    public JSONObject exception(Exception ex){
+    public Result exception(Exception ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.SYSTEM_ERROR.getMsg(),BaseEnum.SYSTEM_ERROR.getIndex());
     }
@@ -73,7 +72,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(FileNotFoundException.class)
-    public JSONObject fileNotFound(FileNotFoundException ex){
+    public Result fileNotFound(FileNotFoundException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.FILE_NOT_FOUND.getMsg(),BaseEnum.FILE_NOT_FOUND.getIndex());
     }
@@ -84,7 +83,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(NumberFormatException.class)
-    public JSONObject numberFormatEx(NumberFormatException ex){
+    public Result numberFormatEx(NumberFormatException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.NUMBER_FORMAT.getMsg(),BaseEnum.NUMBER_FORMAT.getIndex());
     }
@@ -95,7 +94,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(SQLException.class)
-    public JSONObject sqlException(SQLException ex){
+    public Result sqlException(SQLException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.SQL_EXCEPTION.getMsg(),BaseEnum.SQL_EXCEPTION.getIndex());
     }
@@ -107,7 +106,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public JSONObject sqlException(IllegalArgumentException ex){
+    public Result sqlException(IllegalArgumentException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.ILLEGAL_ARGUMENT.getMsg(),BaseEnum.ILLEGAL_ARGUMENT.getIndex());
     }
@@ -118,7 +117,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(StackOverflowError.class)
-    public JSONObject stackOverflow(StackOverflowError ex){
+    public Result stackOverflow(StackOverflowError ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.STACK_OVERFLOW.getMsg(),BaseEnum.STACK_OVERFLOW.getIndex());
     }
@@ -130,7 +129,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public JSONObject noHandlerNotFound(NoHandlerFoundException ex){
+    public Result noHandlerNotFound(NoHandlerFoundException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.NO_HANDLER.getMsg(),BaseEnum.NO_HANDLER.getIndex());
     }
@@ -142,7 +141,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(TypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public JSONObject request400(TypeMismatchException ex){
+    public Result request400(TypeMismatchException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.BAD_REQUEST.getMsg(),BaseEnum.BAD_REQUEST.getIndex());
     }
@@ -154,7 +153,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public JSONObject request400(MissingServletRequestParameterException ex){
+    public Result request400(MissingServletRequestParameterException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.BAD_REQUEST.getMsg() + "   找不到传入的参数",BaseEnum.BAD_REQUEST.getIndex());
     }
@@ -166,7 +165,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public JSONObject request400(HttpMessageNotReadableException ex){
+    public Result request400(HttpMessageNotReadableException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.BAD_REQUEST.getMsg() + "    可能缺少参数",BaseEnum.BAD_REQUEST.getIndex());
     }
@@ -178,7 +177,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
-    public JSONObject Request405(HttpRequestMethodNotSupportedException ex){
+    public Result Request405(HttpRequestMethodNotSupportedException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.METHOD_NOT_ALLOWED.getMsg(),BaseEnum.METHOD_NOT_ALLOWED.getIndex());
     }
@@ -190,7 +189,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({ConversionNotSupportedException.class, HttpMessageNotWritableException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public JSONObject Request500(RuntimeException ex){
+    public Result Request500(RuntimeException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.INTERNAL_SERVER_ERROR.getMsg(),BaseEnum.INTERNAL_SERVER_ERROR.getIndex());
     }
@@ -201,7 +200,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(ClassCastException.class)
-    public JSONObject classCastExceptionHandler(ClassCastException ex) {
+    public Result classCastExceptionHandler(ClassCastException ex) {
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.CLASS_CAST.getMsg(),BaseEnum.CLASS_CAST.getIndex());
     }
@@ -212,7 +211,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(NoSuchMethodException.class)
-    public JSONObject noSuchMethodExceptionHandler(NoSuchMethodException ex) {
+    public Result noSuchMethodExceptionHandler(NoSuchMethodException ex) {
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.NO_SUCH_METHOD.getMsg(),BaseEnum.NO_SUCH_METHOD.getIndex());
     }
@@ -223,7 +222,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(IOException.class)
-    public JSONObject iOExceptionHandler(IOException ex) {
+    public Result iOExceptionHandler(IOException ex) {
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.IO_EXCEPTION.getMsg(),BaseEnum.IO_EXCEPTION.getIndex());
     }
@@ -234,7 +233,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(NullPointerException.class)
-    public JSONObject nullPointerExceptionHandler(NullPointerException ex) {
+    public Result nullPointerExceptionHandler(NullPointerException ex) {
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.NULL_POINTER.getMsg(), BaseEnum.NULL_POINTER.getIndex());
     }
@@ -245,7 +244,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(IndexOutOfBoundsException.class)
-    public JSONObject indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex){
+    public Result indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex){
         log.warn("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.INDEX_OUT_BOUNDS.getMsg(),BaseEnum.INDEX_OUT_BOUNDS.getIndex());
     }
@@ -256,7 +255,7 @@ public class GlobalExceptionHandler {
      * @return 返回前端异常信息
      */
     @ExceptionHandler(MyException.class)
-    public JSONObject myCustomizeException(MyException ex){
+    public Result myCustomizeException(MyException ex){
         log.warn("错误详情：" + ex);
         return Result.errorJson(BaseEnum.CUSTOMIZE_EXCEPTION.getMsg(),BaseEnum.CUSTOMIZE_EXCEPTION.getIndex());
     }
