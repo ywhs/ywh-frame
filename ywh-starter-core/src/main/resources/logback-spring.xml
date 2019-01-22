@@ -176,7 +176,7 @@
     <!-- 4. 最终的策略 -->
     <!-- 4.1 开发环境:打印控制台-->
     <springProfile name="dev">  <!-- 设置指定包下的级别，这样的话  就可以在控制台输出sql语句了 -->
-        <logger name="com.ywh.core" level="debug"/>
+        <logger name="com.ywh" level="debug"/>
     </springProfile>
 
     <root level="info">
