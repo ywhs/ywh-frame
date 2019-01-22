@@ -4,18 +4,18 @@ server:
   port: 8082
 spring:
   profiles:
-    active: dev,redis
+    active: dev,redis,security
   http:
     encoding:
       charset: utf-8
       force: true
       enabled: true
   servlet:
-    #\u914D\u7F6E\u4E0A\u4F20\u7684\u5355\u4E2A\u6587\u4EF6\u7684\u5927\u5C0F\u548C\u603B\u7684\u6587\u4EF6\u5927\u5C0F
+    # 设置上传下载的大小
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-  #\u5168\u5C40\u8BBE\u7F6E\u65F6\u95F4\u683C\u5F0F
+  # 规定全局时间格式化
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

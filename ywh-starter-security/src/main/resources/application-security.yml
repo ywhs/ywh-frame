@@ -1,0 +1,8 @@
+jwt:
+  header: token   #jwt的请求头
+  secret: eyJleHAiOjE1NDMyMDUyODUsInN1YiI6ImFkbWluIiwiY3Jl   #jwt的加密字符串
+  expiration: 3600000   #jwt token有效时间（毫秒）一个小时
+  route:
+    login: /auth/login    #登录地址
+    refresh: /auth/refresh  #刷新token地址
+    register: /auth/register  #注册的地址
