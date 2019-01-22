@@ -25,12 +25,7 @@
 	</properties>
 
 	<dependencies>
-        <!-- cache子模块 -->
-        <dependency>
-            <groupId>com.ywh</groupId>
-            <artifactId>cache</artifactId>
-            <version>${ywh.version}</version>
-        </dependency>
+
 	</dependencies>
 
 	<build>

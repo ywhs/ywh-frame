@@ -1,6 +1,6 @@
 package com.ywh.core;
 
-import com.ywh.common.utils.RedisUtil;
+import com.ywh.cache.utils.RedisUtil;
 import com.ywh.core.dao.ExampleDao;
 import com.ywh.core.dao.UserDao;
 import com.ywh.core.entity.ExampleEntity;
