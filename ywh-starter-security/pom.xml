@@ -25,6 +25,21 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- 引入commonmo模块 -->
+		<dependency>
+			<groupId>com.ywh</groupId>
+			<artifactId>common</artifactId>
+			<version>${ywh.version}</version>
+		</dependency>
+
+		<!--security的依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.1.2.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

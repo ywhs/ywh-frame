@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.ywh.common.utils.Result;
 import com.ywh.core.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,5 +30,22 @@ public class ExampleController {
     @GetMapping("findAll")
     public Result findAll(){
         return Result.successJson(exampleService.myException());
+    }
+
+    @GetMapping("securityTest1")
+    public Result securityTest1(){
+        return Result.successJson("成功了！！！");
+    }
+
+    @GetMapping("securityTest2")
+    public Result securityTest2(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal instanceof UserDetails){
+            String name =  ((UserDetails) principal).getUsername();
+            return Result.successJson("登陆的用户是：" + name);
+        }else {
+            String name = principal.toString();
+            return Result.successJson("登陆的用户是：" + name);
+        }
     }
 }
