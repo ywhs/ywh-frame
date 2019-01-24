@@ -2,8 +2,8 @@ package com.ywh.core;
 
 import com.ywh.cache.utils.RedisUtil;
 import com.ywh.core.dao.ExampleDao;
-import com.ywh.core.dao.UserDao;
 import com.ywh.core.entity.ExampleEntity;
+import com.ywh.security.utils.JwtTokenUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,6 @@ public class CoreApplicationTests {
 
 	@Autowired
 	private ExampleDao exampleDao;
-
-	@Autowired
-    private UserDao userDao;
 
 	@Test
 	public void contextLoads() {
@@ -92,6 +89,19 @@ public class CoreApplicationTests {
         //测试给list相同key值 是否覆盖，不覆盖是正确的
         redisUtil.setList("sss","hahah");
         redisUtil.setList("sss","xixixix");
+    }
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
+
+    @Test
+    public void jwtTest(){
+//        SecurityUser securityUser = new SecurityUser("yangwenhui","123456",1,null);
+//
+//        String j = jwtTokenUtil.generateToken(securityUser);
+//        String userName = jwtTokenUtil.getUsernameFromToken(j);
+        System.out.println("jwt:" + jwtTokenUtil.getSecret());
     }
 }
 
