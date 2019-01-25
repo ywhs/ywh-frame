@@ -8,7 +8,6 @@ import ${package.Service}.${table.serviceName};
 import ${superServiceImplClassPackage};
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import ${package.Mapper}.${table.mapperName};
 
 
 /**
