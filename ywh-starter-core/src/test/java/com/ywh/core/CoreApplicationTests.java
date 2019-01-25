@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -102,6 +103,17 @@ public class CoreApplicationTests {
 //        String j = jwtTokenUtil.generateToken(securityUser);
 //        String userName = jwtTokenUtil.getUsernameFromToken(j);
         System.out.println("jwt:" + jwtTokenUtil.getSecret());
+
+        String uuid1 = UUID.randomUUID().toString();
+        String uuid2 = UUID.randomUUID().toString();
+        String uuid3 = UUID.randomUUID().toString();
+        String uuid4 = UUID.randomUUID().toString();
+        String uuid5 = UUID.randomUUID().toString();
+        System.out.println(uuid1.replace("-",""));
+        System.out.println(uuid2.replace("-",""));
+        System.out.println(uuid3.replace("-",""));
+        System.out.println(uuid4.replace("-",""));
+        System.out.println(uuid5.replace("-",""));
     }
 }
 
