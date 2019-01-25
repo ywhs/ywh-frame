@@ -1,5 +1,7 @@
 package com.ywh.security.config;
 
+import com.ywh.security.service.impl.SecurityUserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,20 +30,32 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
+
+    private SecurityUserDetailsServiceImpl securityUserDetailsService;
+
+
+    @Autowired
+    public SecurityConfigurer(SecurityUserDetailsServiceImpl securityUserDetailsService) {
+        this.securityUserDetailsService = securityUserDetailsService;
+    }
+
     /**
      * 用户信息配置
-     * @param auth
-     * @throws Exception
+     * @param auth 用户信息管理器
+     * @throws Exception 异常信息
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth
+//                .inMemoryAuthentication()
+//                .withUser("root")
+//                .password("root")
+//                .roles("user")
+//                .and()
+//                .passwordEncoder(CharEncoder.getINSTANCE());
         auth
-                .inMemoryAuthentication()
-                .withUser("root")
-                .password("root")
-                .roles("user")
-                .and()
-                .passwordEncoder(CharEncoder.getINSTANCE());
+                .userDetailsService(this.securityUserDetailsService)
+                .passwordEncoder(passwordEncoder());
 
     }
 

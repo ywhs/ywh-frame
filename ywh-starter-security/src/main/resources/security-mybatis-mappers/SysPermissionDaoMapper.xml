@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywh.security.dao.SysPermissionDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ywh.security.entity.SysPermissionEntity">
+        <id column="sys_per_id" property="sysPerId" />
+        <result column="sys_father_id" property="sysFatherId" />
+        <result column="sys_per_title" property="sysPerTitle" />
+        <result column="sys_per_type" property="sysPerType" />
+        <result column="sys_per_describe" property="sysPerDescribe" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sys_per_id, sys_father_id, sys_per_title, sys_per_type, sys_per_describe
+    </sql>
+
+</mapper>

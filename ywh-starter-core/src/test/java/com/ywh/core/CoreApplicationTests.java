@@ -1,8 +1,12 @@
 package com.ywh.core;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ywh.cache.utils.RedisUtil;
 import com.ywh.core.dao.ExampleDao;
 import com.ywh.core.entity.ExampleEntity;
+import com.ywh.security.dao.SysUserDao;
+import com.ywh.security.entity.SysUserEntity;
 import com.ywh.security.utils.JwtTokenUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -115,5 +121,19 @@ public class CoreApplicationTests {
         System.out.println(uuid4.replace("-",""));
         System.out.println(uuid5.replace("-",""));
     }
+
+
+    @Autowired
+    private SysUserDao sysUserDao;
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void securityDaoTest() throws JsonProcessingException {
+        SysUserEntity sysUserEntity = sysUserDao.selectByUserName("ywh");
+        System.out.println(sysUserEntity);
+        System.out.println(objectMapper.writeValueAsString(sysUserEntity));
+    }
+
 }
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ywh.security.dao.SysUserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ywh.security.entity.SysUserEntity">
+        <id column="sys_user_id" property="sysUserId" />
+        <result column="sys_user_account" property="sysUserAccount" />
+        <result column="sys_user_password" property="sysUserPassword" />
+        <result column="sys_user_name" property="sysUserName" />
+        <result column="sys_user_phone" property="sysUserPhone" />
+        <result column="sys_user_email" property="sysUserEmail" />
+        <result column="sys_user_state" property="sysUserState" />
+        <result column="sys_add_time" property="sysAddTime" />
+        <result column="sys_up_time" property="sysUpTime" />
+        <collection property="roles" ofType="com.ywh.security.entity.SysRoleEntity">
+            <id column="sys_role_id" property="sysRoleId" />
+            <result column="sys_role_name" property="sysRoleName" />
+            <result column="sys_role_describe" property="sysRoleDescribe" />
+            <result column="sys_role_state" property="sysRoleState" />
+            <result column="sys_add_time" property="sysAddTime" />
+            <result column="sys_up_time" property="sysUpTime" />
+        </collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sys_user_id, sys_user_account, sys_user_password, sys_user_name, sys_user_phone, sys_user_email, sys_user_state, sys_add_time, sys_up_time
+    </sql>
+
+
+    <select id="selectByUserName" resultMap="BaseResultMap">
+        select * from sys_user where sys_user_name= #{username,jdbcType=VARCHAR}
+    </select>
+
+
+</mapper>

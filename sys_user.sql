@@ -67,10 +67,10 @@ create table sys_user
    primary key (sys_user_id)
 );
 
-INSERT INTO `test`.`sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('715037a78f4545c5b89ee858141f3aa9', 'lry', '$2a$10$eizOrUVVJfER7XfU0wF3w.eG2oOg154EcY70G7np80be64sgKOYve', 'lry', '1954856826', '58994625@qq.com', 1, '2019-01-25 09:33:05', '2019-01-25 09:33:05');
-INSERT INTO `test`.`sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('b10a36c74f604c3aac83d0d955751cd4', 'jon', '$2a$10$A08T4ZpSFBjX69R8YupZ8.gmfhhG9k50wHWhwmPf4xpCkh8/VnRyu', 'jon', '1686156823', '52586852@qq.com', 1, '2019-01-25 09:38:24', '2019-01-25 09:38:40');
-INSERT INTO `test`.`sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('b6be6ead7cc94e46a6547406abce1aa1', 'zyd', '$2a$10$YqAxjoZP9TbrmNUNz4HaoOJJnxas5MfzuS552MxLc/dJQhh1svQxu', 'zyd', '1656975556', '59466823@qq.com', 1, '2019-01-25 09:33:38', '2019-01-25 09:33:38');
-INSERT INTO `test`.`sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('ca6c5272c4654f09acc165aaa17e8c27', 'ywh', '$2a$10$A08T4ZpSFBjX69R8YupZ8.gmfhhG9k50wHWhwmPf4xpCkh8/VnRyu', 'ywh', '1549952464', '15665828@qq.com', 1, '2019-01-25 09:32:16', '2019-01-25 09:32:16');
+INSERT INTO `sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('715037a78f4545c5b89ee858141f3aa9', 'lry', '$2a$10$eizOrUVVJfER7XfU0wF3w.eG2oOg154EcY70G7np80be64sgKOYve', 'lry', '1954856826', '58994625@qq.com', 1, '2019-01-25 09:33:05', '2019-01-25 09:33:05');
+INSERT INTO `sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('b10a36c74f604c3aac83d0d955751cd4', 'jon', '$2a$10$A08T4ZpSFBjX69R8YupZ8.gmfhhG9k50wHWhwmPf4xpCkh8/VnRyu', 'jon', '1686156823', '52586852@qq.com', 1, '2019-01-25 09:38:24', '2019-01-25 09:38:40');
+INSERT INTO `sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('b6be6ead7cc94e46a6547406abce1aa1', 'zyd', '$2a$10$YqAxjoZP9TbrmNUNz4HaoOJJnxas5MfzuS552MxLc/dJQhh1svQxu', 'zyd', '1656975556', '59466823@qq.com', 1, '2019-01-25 09:33:38', '2019-01-25 09:33:38');
+INSERT INTO `sys_user`(`sys_user_id`, `sys_user_account`, `sys_user_password`, `sys_user_name`, `sys_user_phone`, `sys_user_email`, `sys_user_state`, `sys_add_time`, `sys_up_time`) VALUES ('ca6c5272c4654f09acc165aaa17e8c27', 'ywh', '$2a$10$A08T4ZpSFBjX69R8YupZ8.gmfhhG9k50wHWhwmPf4xpCkh8/VnRyu', 'ywh', '1549952464', '15665828@qq.com', 1, '2019-01-25 09:32:16', '2019-01-25 09:32:16');
 
 /*==============================================================*/
 /* Table: sys_user_role                                         */
@@ -81,8 +81,8 @@ create table sys_user_role
    sys_role_id          int unsigned not null default 0 comment '系统角色id'
 );
 
-INSERT INTO `test`.`sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('715037a78f4545c5b89ee858141f3aa9', 1);
-INSERT INTO `test`.`sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('b6be6ead7cc94e46a6547406abce1aa1', 2);
-INSERT INTO `test`.`sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('ca6c5272c4654f09acc165aaa17e8c27', 2);
-INSERT INTO `test`.`sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('b10a36c74f604c3aac83d0d955751cd4', 4);
+INSERT INTO `sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('715037a78f4545c5b89ee858141f3aa9', 1);
+INSERT INTO `sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('b6be6ead7cc94e46a6547406abce1aa1', 2);
+INSERT INTO `sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('ca6c5272c4654f09acc165aaa17e8c27', 2);
+INSERT INTO `sys_user_role`(`sys_user_id`, `sys_role_id`) VALUES ('b10a36c74f604c3aac83d0d955751cd4', 4);
 

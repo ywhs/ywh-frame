@@ -3,7 +3,7 @@
 spring:
   datasource:
     # mysql数据库接地址
-#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+#    url: jdbc:mysql://127.0.0.1:3306/ywh_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
 #    username: root
 #    password: 123456
 #    driver-class-name: com.mysql.jdbc.Driver
@@ -68,9 +68,9 @@ spring:
       use-global-data-source-stat: true
 ##mybatisPlus     http://mp.baomidou.com/#/quick-start
 mybatis-plus:
-  mapper-locations: classpath*:/mybatis-mappers/*
+  mapper-locations: classpath*:/mybatis-mappers/*,classpath*:/security-mybatis-mappers/*
   #MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML 文件中可以直接使用类名，而不用使用全限定的类名
-  type-aliases-package: com.ywh.core.entity
+  type-aliases-package: com.ywh.core.entity,com.ywh.security.entity
   # 数据库表与实体类的驼峰命名自动转换
   configuration:
     map-underscore-to-camel-case: true
