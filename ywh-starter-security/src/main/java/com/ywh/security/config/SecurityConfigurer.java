@@ -4,16 +4,12 @@ import com.ywh.security.service.impl.SecurityUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -46,13 +42,6 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//                .inMemoryAuthentication()
-//                .withUser("root")
-//                .password("root")
-//                .roles("user")
-//                .and()
-//                .passwordEncoder(CharEncoder.getINSTANCE());
         auth
                 .userDetailsService(this.securityUserDetailsService)
                 .passwordEncoder(passwordEncoder());
@@ -66,16 +55,58 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+
         httpSecurity
+                // 暂时禁用csrc否则无法提交
+                .csrf().disable()
+                // 设置最多一个用户登录，如果第二个用户登陆则第一用户被踢出，并跳转到登陆页面
+                .sessionManagement().maximumSessions(1).expiredUrl("/login.html");
+        httpSecurity
+                // 开始认证
                 .authorizeRequests()
-                .antMatchers("/example/securityTest").permitAll()
-                .antMatchers(HttpMethod.POST,"/example/findAll").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin();
+                // 对静态文件和登陆页面放行
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/login.html").permitAll()
+                // 其他请求需要认证登陆
+                .anyRequest().authenticated();
+        httpSecurity
+                // 表单登陆
+                .formLogin()
+                // 设置跳转的登陆页面
+                .loginPage("/login.html")
+                //.failureUrl("/auth/login?error") 设置如果登陆失败跳转到哪个页面
+//                .successHandler((request, response, authentication) -> {
+//                    System.out.println("登陆成功");
+//                })
+                // security默认使用的就是login路径认证，如果想使用自定义自行修改就可以了
+                .loginProcessingUrl("/login")
+                // 如果直接访问登录页面，则登录成功后重定向到这个页面，否则跳转到之前想要访问的页面
+                .defaultSuccessUrl("/index.html");
+//        httpSecurity
+//                // 登出
+//                .logout()
+//                // 登出处理，使用security默认的logout，也可以自定义路径，实现即可
+//                .logoutUrl("/logout")
+//                // 登出成功后跳转到哪个页面
+//                .logoutSuccessUrl("/login.html")
+//                .logoutSuccessHandler((request, response, authentication) -> {
+//                    //登出成功处理函数
+//                    System.out.println("logout success");
+//                    response.sendRedirect("/core/login.html");
+//                })
+//                .addLogoutHandler((request, response, authentication) ->{
+//                    //登出处理函数
+//                    System.out.println("logout------");
+//                })
+//                // 清理Session
+//                .invalidateHttpSession(true);
     }
 
 
+    /**
+     * 自定义的纯文本编码内部类
+     */
     public static class CharEncoder implements PasswordEncoder {
 
         static CharEncoder INSTANCE = new CharEncoder();
