@@ -69,6 +69,18 @@ public class Result {
      * 失败返回的json封装体
      * @return json格式
      */
+    public static Result errorJson(String msg){
+        Result results = new Result();
+        results.setCode(BaseEnum.FAIL.getIndex());
+        results.setSuccess(false);
+        results.setMsg(msg);
+        return results;
+    }
+
+    /**
+     * 失败返回的json封装体
+     * @return json格式
+     */
     public static Result errorJson(String msg,Integer code){
         Result results = new Result();
         results.setCode(code);

@@ -5,6 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.ywh.security.entity.SysUserEntity">
         <id column="sys_user_id" property="sysUserId" />
+        <result column="sys_user_avatar" property="sysUserAvatar" />
         <result column="sys_user_account" property="sysUserAccount" />
         <result column="sys_user_password" property="sysUserPassword" />
         <result column="sys_user_name" property="sysUserName" />
@@ -25,12 +26,15 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        sys_user_id, sys_user_account, sys_user_password, sys_user_name, sys_user_phone, sys_user_email, sys_user_state, sys_add_time, sys_up_time
+        sys_user_id, sys_user_avatar, sys_user_account, sys_user_password, sys_user_name, sys_user_phone, sys_user_email, sys_user_state, sys_add_time, sys_up_time
     </sql>
 
 
     <select id="selectByUserName" resultMap="BaseResultMap">
-        select * from sys_user where sys_user_name= #{username,jdbcType=VARCHAR}
+        select u.*,r.* from sys_user u
+        left join sys_user_role ur on u.sys_user_id = ur.sys_user_id
+        left join sys_role r on r.sys_role_id = ur.sys_role_id
+        where u.sys_user_name=#{username,jdbcType=VARCHAR}
     </select>
 
 

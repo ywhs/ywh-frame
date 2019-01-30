@@ -7,8 +7,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.ywh.common.base.Constants;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -34,6 +32,11 @@ public class SysUserEntity implements Serializable {
      */
     @TableId(value = "sys_user_id", type = IdType.AUTO)
     private String sysUserId;
+
+    /**
+     * 用户头像
+     */
+    private String sysUserAvatar;
 
     /**
      * 系统用户账户

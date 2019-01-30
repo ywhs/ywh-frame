@@ -104,6 +104,10 @@ public enum  BaseEnum {
      */
     CUSTOMIZE_EXCEPTION("自定义异常，请检查",121),
     /**
+     * token过期了，请重新登录!
+     */
+    LOGIN_AGIN("token过期了，请重新登录!",122),
+    /**
      * 400错误
      */
     BAD_REQUEST("Bad Request!",400),
