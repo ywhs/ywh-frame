@@ -32,15 +32,15 @@ service.interceptors.response.use(
      * code为非20000是抛错 可结合自己业务进行修改
      */
     const res = response.data
-    if (res.code !== 200) { // 修改，每一个人的返回结构体不一样，要按照自己的结构体定义
+    if (res.code !== 200) { // 修改，每一个人的返回结构体不一样，要按照自己的结构体定义,y一定要改成自己的结构体，因为原本的是res.message，我的是res.msg，导致我一直找不到原因。
       Message({
-        message: res.message,
+        message: res.msg,
         type: 'error',
         duration: 5 * 1000
       })
 
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014 || res.code === 103) {
+      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         MessageBox.confirm(
           '你已被登出，可以取消继续留在该页面，或者重新登录',
           '确定登出',
@@ -62,12 +62,12 @@ service.interceptors.response.use(
   },
   error => {
     console.log('err' + error) // for debug
-    // Message({
-    //   message: error.message,
-    //   type: 'error',
-    //   duration: 5 * 1000
-    // })
-    // return Promise.reject(error)
+    Message({
+      message: error.msg,
+      type: 'error',
+      duration: 5 * 1000
+    })
+    return Promise.reject(error)
   }
 )
 
