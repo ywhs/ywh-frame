@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
     /**
      *   启动应用后，被 @ExceptionHandler、@InitBinder、@ModelAttribute 注解的方法，
      *   都会作用在 被 @RequestMapping 注解的方法上。
-     * @param binder
+     * @param binder 参数
      */
     @InitBinder
     public void initWebBinder(WebDataBinder binder){
@@ -177,7 +177,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
-    public Result Request405(HttpRequestMethodNotSupportedException ex){
+    public Result request405(HttpRequestMethodNotSupportedException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.METHOD_NOT_ALLOWED.getMsg(),BaseEnum.METHOD_NOT_ALLOWED.getIndex());
     }
@@ -189,7 +189,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler({ConversionNotSupportedException.class, HttpMessageNotWritableException.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result Request500(RuntimeException ex){
+    public Result request500(RuntimeException ex){
         log.error("错误详情：" + ex.getMessage(),ex);
         return Result.errorJson(BaseEnum.INTERNAL_SERVER_ERROR.getMsg(),BaseEnum.INTERNAL_SERVER_ERROR.getIndex());
     }
