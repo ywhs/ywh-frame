@@ -69,13 +69,11 @@ public class JwtTokenUtil {
 
     /**
      * 生成令牌
-     *
-     * @param userDetails 用户
      * @return 令牌
      */
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(String userName) {
         Map<String, Object> claims = new HashMap<>(2);
-        claims.put("sub", userDetails.getUsername());
+        claims.put("sub", userName);
         claims.put("created", new Date());
         return generateToken(claims);
     }
@@ -104,7 +102,6 @@ public class JwtTokenUtil {
      * @return 是否过期
      */
     public Boolean isTokenExpired(String token) {
-        System.out.println("token:" + token);
         try {
             Claims claims = getClaimsFromToken(token);
             Date expiration = claims.getExpiration();

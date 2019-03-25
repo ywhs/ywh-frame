@@ -9,6 +9,7 @@ import com.ywh.security.utils.JwtTokenUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -61,6 +62,7 @@ public class AuthController {
      * 用户详情
      * @return 用户详细信息
      */
+    @Cacheable(value = "userInfo")
     @GetMapping("userInfo")
     public Result userInfo(){
         Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
