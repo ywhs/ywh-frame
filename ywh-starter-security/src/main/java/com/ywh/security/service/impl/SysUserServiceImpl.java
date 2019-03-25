@@ -69,8 +69,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserDao, SysUserEntit
         Authentication auth = authenticate.authenticate(authRequest);
         log.debug("===============权限============" + auth);
         SecurityContextHolder.getContext().setAuthentication(auth);
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-        return jwtTokenUtil.generateToken(userDetails);
+        return jwtTokenUtil.generateToken(username);
     }
 }

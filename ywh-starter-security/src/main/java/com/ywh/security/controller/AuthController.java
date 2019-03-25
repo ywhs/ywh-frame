@@ -6,8 +6,11 @@ import com.ywh.common.utils.Result;
 import com.ywh.security.entity.SecurityUserDetails;
 import com.ywh.security.service.SysUserService;
 import com.ywh.security.utils.JwtTokenUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,6 +31,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("auth")
 public class AuthController {
+
+
+    private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
+
+
     @Autowired
     private SysUserService sysUserService;
 
@@ -39,8 +47,14 @@ public class AuthController {
      */
     @PostMapping("login")
     public Result login(@RequestBody Map<String, String> map){
-        String token = sysUserService.login(map.get("username"), map.get("password"));
-        return Result.successJson(token);
+        try {
+            String token = sysUserService.login(map.get("username"), map.get("password"));
+            return Result.successJson(token);
+        }catch (AuthenticationException ex){
+            LOG.error("登陆失败",ex);
+            return Result.errorJson(BaseEnum.PASSWORD_ERROR.getMsg(),BaseEnum.PASSWORD_ERROR.getIndex());
+        }
+
     }
 
     /**
@@ -56,5 +70,9 @@ public class AuthController {
         return Result.errorJson(BaseEnum.LOGIN_AGIN.getMsg(),BaseEnum.LOGIN_AGIN.getIndex());
     }
 
+    @PostMapping("logOut")
+    public Result logOut(){
+        return Result.successJson("退出成功，因为token本身是无状态，如果通过redis来控制token的生存周期，则变成了有状态，所以暂时没有好的解决办法。");
+    }
 
 }
