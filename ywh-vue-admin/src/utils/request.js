@@ -32,7 +32,7 @@ service.interceptors.response.use(
      * code为非20000是抛错 可结合自己业务进行修改
      */
     const res = response.data
-    if (res.code !== 200) { // 修改，每一个人的返回结构体不一样，要按照自己的结构体定义,y一定要改成自己的结构体，因为原本的是res.message，我的是res.msg，导致我一直找不到原因。
+    if (res.code !== 200) { // 修改，每一个人的返回结构体不一样，要按照自己的结构体定义,一定要改成自己的结构体，因为原本的是res.message，我的是res.msg，忘记修改，导致我一直找不到原因。
       Message({
         message: res.msg,
         type: 'error',
