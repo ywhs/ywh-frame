@@ -60,9 +60,10 @@ public class AuthController {
 
     /**
      * 用户详情
+     * //@Cacheable(value = "userInfo")
      * @return 用户详细信息
      */
-    @Cacheable(value = "userInfo")
+
     @GetMapping("userInfo")
     public Result userInfo(){
         Object authentication = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
