@@ -31,7 +31,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<ywh.version>0.0.1-SNAPSHOT</ywh.version>   <!-- 本项目的版本 -->
 	</properties>
 
 	<dependencies>
@@ -98,27 +97,6 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- druid依赖 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
-        </dependency>
-
-        <!-- mysql驱动依赖  不加版本号会获取最新的 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
-        </dependency>
-
-        <!-- jdbc驱动依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>2.1.1.RELEASE</version>
-        </dependency>
-
         <!-- mybatisPlus的依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -150,13 +128,5 @@
 
     </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

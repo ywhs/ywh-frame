@@ -1,5 +1,6 @@
 package com.ywh.core.dao;
 
+import com.ywh.common.base.BaseDao;
 import com.ywh.core.entity.ExampleEntity;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,7 @@ import java.util.List;
  * @author YWH
  */
 @Repository
-public interface ExampleDao {
+public interface ExampleDao extends BaseDao<ExampleEntity>{
 
     @Select("select * from user")
     List<ExampleEntity> findAll();

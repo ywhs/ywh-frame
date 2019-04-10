@@ -26,12 +26,19 @@ import java.util.List;
  * getList   addData   addDataBatch   updateById  updateByColumn  deleteByColumn  deleteById  deleteByIds
  * @author YWH
  */
+@SuppressWarnings("unchecked")
 public class BaseController<Service extends IService,T> {
 
     private static final Logger log = LoggerFactory.getLogger(BaseMapper.class);
 
-    @Autowired
+
     private Service service;
+
+    @Autowired
+    public void setService(Service service){
+        this.service = service;
+    }
+
 
     /**
      * 获取所有的数据
@@ -50,7 +57,7 @@ public class BaseController<Service extends IService,T> {
      */
     @GetMapping("getPageList")
     public Result getPageList(@RequestBody BasePage pn){
-        Page<T> pojo = new Page<T>(pn.getCurrent(),pn.getSize());
+        Page<T> pojo = new Page<>(pn.getCurrent(),pn.getSize());
         IPage<T> page = service.page(pojo);
         log.info("总条数 ------> " + page.getTotal());
         log.info("当前页数 ------> " + page.getCurrent());

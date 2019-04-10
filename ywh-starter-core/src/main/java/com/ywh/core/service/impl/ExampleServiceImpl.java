@@ -1,6 +1,9 @@
 package com.ywh.core.service.impl;
 
+import com.ywh.common.base.BaseServiceImpl;
 import com.ywh.common.utils.MyExceptionUtil;
+import com.ywh.core.dao.ExampleDao;
+import com.ywh.core.entity.ExampleEntity;
 import com.ywh.core.service.ExampleService;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author YWH
  */
 @Service
-public class ExampleServiceImpl implements ExampleService{
+public class ExampleServiceImpl extends BaseServiceImpl<ExampleDao,ExampleEntity> implements ExampleService{
 
     @Override
     public String myException() {

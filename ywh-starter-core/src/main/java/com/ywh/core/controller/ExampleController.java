@@ -1,7 +1,9 @@
 package com.ywh.core.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ywh.common.base.BaseController;
 import com.ywh.common.utils.Result;
+import com.ywh.core.entity.ExampleEntity;
 import com.ywh.core.service.ExampleService;
 import com.ywh.security.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("example")
-public class ExampleController {
+public class ExampleController extends BaseController<ExampleService,ExampleEntity>{
 
     @Autowired
     private ExampleService exampleService;

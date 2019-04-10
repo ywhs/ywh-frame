@@ -8,13 +8,13 @@
 		<groupId>com.ywh</groupId>
 		<artifactId>springcloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 
 	<!-- 本模块描述 -->
 	<groupId>com.ywh</groupId>
 	<artifactId>common</artifactId>
-	<version>${ywh.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>common</name>
 	<description>Tools for ywh</description>
 
@@ -27,14 +27,5 @@
 	<dependencies>
 
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

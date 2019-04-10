@@ -29,8 +29,13 @@ import java.time.Duration;
 @EnableCaching
 public class RedisCacheConfig {
 
-    @Autowired
+
     private RedisConnectionFactory redisConnectionFactory;
+
+    @Autowired
+    public void setRedisConnectionFactory(RedisConnectionFactory redisConnectionFactory){
+        this.redisConnectionFactory = redisConnectionFactory;
+    }
 
     /**
      * 覆盖默认的配置
@@ -38,10 +43,10 @@ public class RedisCacheConfig {
      */
     @Bean
     public RedisTemplate<String,Object> redisTemplate(){
-        RedisTemplate<String, Object> template = new RedisTemplate();
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(redisConnectionFactory);
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
+        FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
 
 
         // 设置value的序列化规则和key的序列化规则
@@ -56,13 +61,13 @@ public class RedisCacheConfig {
 
     /**
      * 解决注解方式存放到redis中的值是乱码的情况
-     * @param factory
+     * @param factory 连接工厂
      * @return CacheManager
      */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();
-        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(Object.class);
+        FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
 
         // 配置注解方式的序列化
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();

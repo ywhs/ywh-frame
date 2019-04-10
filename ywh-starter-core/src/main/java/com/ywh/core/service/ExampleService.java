@@ -1,5 +1,8 @@
 package com.ywh.core.service;
 
+import com.ywh.common.base.BaseService;
+import com.ywh.core.entity.ExampleEntity;
+
 /**
  * CreateTime: 2018-12-18 19:47
  * ClassName: ExampleService
@@ -9,7 +12,7 @@ package com.ywh.core.service;
  *
  * @author YWH
  */
-public interface ExampleService {
+public interface ExampleService extends BaseService<ExampleEntity> {
 
     public String myException();
 }
