@@ -27,9 +27,16 @@
 	<dependencies>
 
 		<!-- 引入commonmo模块 -->
+		<!--<dependency>-->
+			<!--<groupId>com.ywh</groupId>-->
+			<!--<artifactId>common</artifactId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+		<!--</dependency>-->
+
+		<!-- cache子模块 -->
 		<dependency>
 			<groupId>com.ywh</groupId>
-			<artifactId>common</artifactId>
+			<artifactId>cache</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

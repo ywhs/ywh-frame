@@ -26,11 +26,11 @@
 
 	<dependencies>
 		<!-- common子模块 -->
-		<dependency>
-			<groupId>com.ywh</groupId>
-			<artifactId>common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.ywh</groupId>-->
+			<!--<artifactId>common</artifactId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+		<!--</dependency>-->
 
         <!-- security子模块 -->
         <dependency>
@@ -39,12 +39,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-		<!-- cache子模块 -->
-		<dependency>
-			<groupId>com.ywh</groupId>
-			<artifactId>cache</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 
 		<!-- druid依赖 -->
 		<dependency>
