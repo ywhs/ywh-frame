@@ -5,9 +5,9 @@ ywh个人学习开发框架，这个学习项目可以让你了解到如何从0-
 
 搭建笔记：
 
-- [SpringBoot2.1个人开发框架](https://blog.csdn.net/qq_36956154/article/details/84036199)
+- [CSDN的SpringBoot2.1个人开发框架](https://blog.csdn.net/qq_36956154/article/details/84036199)
 
-- [掘金笔记地址](https://juejin.im/user/5caaaaccf265da24d507139c/posts)
+- [掘金的SpringBoot2.1版本的个人应用开发框架](https://juejin.im/post/5cac459e5188251afe0a7950)
 
 ## 技术栈
 
