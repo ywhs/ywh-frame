@@ -61,6 +61,15 @@ npm run dev
 
 ## 部署
 
+**注意**
+
+在正式打包开始之前，要把后端数据库连接的IP地址、logback.xml的日志文件地址、redis的连接地址都要修改为自己服务器的相应IP和地址。
+数据库连接地址我填的是内网地址，redis的我填的公网IP.
+
+在打包前端项目之前需要修改 config->prod.env.js中的BASE_APIIP为自己服务器的IP地址，
+我填的是公网IP，为了确保可以把dev.env.js中的BASE_API也修改了。
+
+
 部署环境：
 - 阿里云服务器（Centos7）
 - Liunx安装docker：[centos7下Docker CE安装](https://juejin.im/post/5cad7187e51d456e651b644c#heading-5)
