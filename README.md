@@ -1,22 +1,30 @@
 
 # YwhFrame
 
-ywh个人学习开发框架，搭建笔记：[SpringBoot2.1个人开发框架](https://blog.csdn.net/qq_36956154/article/details/84036199)
+ywh个人学习开发框架，这个学习项目可以让你了解到如何从0-1搭建一个前后端分离的框架，后续会继续优化项目，逐步修改为微服务框架。
 
-## 整合
+搭建笔记：
 
+-[SpringBoot2.1个人开发框架](https://blog.csdn.net/qq_36956154/article/details/84036199)
+
+-[掘金笔记地址](https://juejin.im/user/5caaaaccf265da24d507139c/posts)
+
+## 技术栈
+
+- springboot
 - 数据连接池 Druid
 - 使用MyBatisPlus作为持久层
 - 集成Redis
 - 实现SpringSecurity作为安全框架管理账户
+- 整合vue2.x作为前端技术
+- 使用容器Docker部署
 
 ## 环境
 
 - JDK1.8
 - mysql
-- Redis  ====> 安装参考笔记:[Redis学习 安装与简单命令的使用（一）](https://blog.csdn.net/qq_36956154/article/details/84339285) 
+- Redis  ====> 安装参考笔记:[Liunx安装Redis(docker)](https://juejin.im/post/5cad7187e51d456e651b644c#heading-9) 
 - node.js ====> 安装参考笔记:[node.js 安装与环境变量配置](https://blog.csdn.net/qq_36956154/article/details/79468078)
-
 
 ## 启动
 
