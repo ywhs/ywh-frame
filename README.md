@@ -137,6 +137,6 @@ $ npm run build
 主要是Nginx的安装和配置，页面无非是静态页面。
 
 
-更详细的部署笔记：[使用docker打包与部署](https://blog.csdn.net/qq_36956154/article/details/89174804)
+更详细的部署笔记：[使用docker打包与部署](https://juejin.im/post/5caf120fe51d456e4d4de707)
 
 
