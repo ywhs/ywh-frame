@@ -20,7 +20,6 @@
 
 	<!-- 子模块 -->
 	<modules>
-		<module>ywh-starter-cache</module>   <!-- 缓存子模块 -->
 		<module>ywh-starter-common</module>   <!-- 工具模块 -->
 		<module>ywh-starter-core</module>   <!-- 写代码的子模块 -->
 		<module>ywh-starter-security</module>  <!-- 权限子模块 -->
