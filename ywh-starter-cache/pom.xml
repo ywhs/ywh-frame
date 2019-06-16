@@ -13,7 +13,6 @@
 	</parent>
 
 	<!-- 本模块描述 -->
-	<groupId>com.ywh</groupId>
 	<artifactId>cache</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cache</name>
@@ -26,6 +25,7 @@
 	</properties>
 
 	<dependencies>
+
 		<!-- redis依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +38,7 @@
 			<artifactId>common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 	</dependencies>
 
 

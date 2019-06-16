@@ -12,7 +12,6 @@
 	</parent>
 
     <!-- 本模块描述 -->
-	<groupId>com.ywh</groupId>
 	<artifactId>security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>security</name>
@@ -25,13 +24,6 @@
 	</properties>
 
 	<dependencies>
-
-		<!-- 引入commonmo模块 -->
-		<!--<dependency>-->
-			<!--<groupId>com.ywh</groupId>-->
-			<!--<artifactId>common</artifactId>-->
-			<!--<version>0.0.1-SNAPSHOT</version>-->
-		<!--</dependency>-->
 
 		<!-- cache子模块 -->
 		<dependency>

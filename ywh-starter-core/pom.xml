@@ -12,7 +12,6 @@
 	</parent>
 
 	<!-- 本模块描述 -->
-	<groupId>com.ywh</groupId>
 	<artifactId>core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>core</name>
@@ -25,12 +24,6 @@
 	</properties>
 
 	<dependencies>
-		<!-- common子模块 -->
-		<!--<dependency>-->
-			<!--<groupId>com.ywh</groupId>-->
-			<!--<artifactId>common</artifactId>-->
-			<!--<version>0.0.1-SNAPSHOT</version>-->
-		<!--</dependency>-->
 
         <!-- security子模块 -->
         <dependency>
@@ -38,8 +31,6 @@
             <artifactId>security</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-
 
 		<!-- druid依赖 -->
 		<dependency>
@@ -62,8 +53,6 @@
 			<version>2.1.1.RELEASE</version>
 		</dependency>
 
-
-
 	</dependencies>
 
 	<build>
@@ -74,26 +63,26 @@
 			</plugin>
 
 			<!-- 如果是线上打包部署，把上面的注释掉，把下面的打开 -->
-			<!--<plugin>-->
-				<!--<groupId>com.spotify</groupId>-->
-				<!--<artifactId>docker-maven-plugin</artifactId>-->
-				<!--<version>1.2.0</version>-->
-				<!--<configuration>-->
-					<!-- 镜像的名字 -->
-					<!--<imageName>${project.artifactId}</imageName>-->
-					<!-- Dockerfile文件的位置 -->
-					<!--<dockerDirectory>${project.build.outputDirectory}</dockerDirectory>-->
-					<!--<resources>-->
-						<!--<resource>-->
-							<!-- target目录的位置 -->
-							<!--<targetPath>/</targetPath>-->
-							<!--<directory>${project.build.directory}</directory>-->
-							<!-- 打包项目后的jar包名字 -->
-							<!--<include>${project.build.finalName}.jar</include>-->
-						<!--</resource>-->
-					<!--</resources>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.2.0</version>
+				<configuration>
+					 <!--镜像的名字 -->
+					<imageName>${project.artifactId}</imageName>
+					 <!--Dockerfile文件的位置-->
+					<dockerDirectory>${project.build.outputDirectory}</dockerDirectory>
+					<resources>
+						<resource>
+							 <!--target目录的位置-->
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							 <!--打包项目后的jar包名字-->
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 
 
 		</plugins>
