@@ -1,0 +1,18 @@
+# port configuration
+server:
+  port: 9001
+# spring global configuration
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ywh-cloud-core
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  # global time configuration
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8

@@ -20,9 +20,9 @@
 
 	<!-- 子模块 -->
 	<modules>
-		<module>ywh-starter-common</module>   <!-- 工具模块 -->
-		<module>ywh-starter-core</module>   <!-- 写代码的子模块 -->
-		<module>ywh-starter-security</module>  <!-- 权限子模块 -->
+        <module>ywh-cloud-core</module>     <!-- 主要写代码服务 -->
+        <module>ywh-cloud-eureka</module>   <!-- eureka注册中心 -->
+        <module>ywh-cloud-common</module>   <!-- 微服务的基础服务模块 -->
 	</modules>
 
 
@@ -30,22 +30,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
-
-        <!-- 引入web依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-		<!-- springboot的测试类 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 
         <!-- 引入fastjson依赖包 -->
         <dependency>
@@ -96,12 +84,6 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- mybatisPlus的依赖 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.6</version>
-        </dependency>
         <!-- freemarke引擎依赖引入 -->
         <dependency>
             <groupId>org.freemarker</groupId>
@@ -124,8 +106,19 @@
             <scope>provided</scope>
         </dependency>
 
-
     </dependencies>
 
+    <dependencyManagement>
+        <!--dependencyManagement在多模块项目中统一管理依赖版本问题-->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

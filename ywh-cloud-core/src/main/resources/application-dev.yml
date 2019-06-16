@@ -1,0 +1,81 @@
+# 在这里我没有写driver-class-name: com.mysql.jdbc.Driver这个驱动被弃用了  使用新版com.mysql.cj.jdbc.Driver
+# 控制台提示说自动帮我们找相应的驱动，一般无需手动加载，所以我注释掉了
+spring:
+  datasource:
+    # mysql database address
+    #    url: jdbc:mysql://127.0.0.1:3306/ywh_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    #    username: root
+    #    password: 123456
+    #    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    # initialization druid
+    druid:
+      # mysql database address
+      url: jdbc:mysql://127.0.0.1:3306/ywh_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # Monitor page username and password and page address
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+        enabled: true
+        url-pattern: /druid/*
+      # Initialize the connection size 。Default: 0
+      initial-size: 5
+      # Minimum number of idle connections 。Default: 0
+      min-idle: 5
+      # Maximum number of connections 。Default: 8
+      max-active: 20
+      # Get the connection wait timeout (ms) 。Default: -1
+      max-wait: 60000
+      # Query timeout (seconds)
+      query-timeout: 90
+      # Sql used to detect whether the connection is valid, the request is a query statement
+      validation-query: SELECT 1 FROM DUAL
+      # Check connection availability when applying for a connection 。Default: false
+      test-on-borrow: false
+      # Return Connection Detection 。Default: false
+      test-on-return: false
+      # Whether the timeout detects connection availability
+      test-while-idle: true
+      # How long does the configuration interval take to detect an idle connection (milliseconds) that needs to be closed?
+      time-between-eviction-runs-millis: 60000
+      # Configure the minimum lifetime of a connection in the pool (ms, default 30 minutes)
+      min-evictable-idle-time-millis: 300000
+      # Configure extensions by alias. Common plug-ins are: filter:stat for monitoring statistics; filter:log4j for logs; filter:wall for sql injection
+      filters: stat,wall,slf4j
+      # Slow SQL record https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 2000
+          db-type: mysql
+          # SQL合并 默认：false
+          merge-sql: false
+        wall:
+          config:
+            delete-allow: false
+            drop-table-allow: false
+          enabled: true
+          db-type: mysql
+      # Whether to cache PreparedStatement. PSCache has a huge performance improvement on the database that supports cursors, for example, oracle. It is recommended to close under mysql.
+      pool-prepared-statements: false
+      # The size of the PSCache on each connection
+      max-pool-prepared-statement-per-connection-size: 20
+      # Combine monitoring data from multiple DruidDataSources
+      use-global-data-source-stat: true
+# mybatisPlus configuration     http://mp.baomidou.com/#/quick-start
+mybatis-plus:
+  mapper-locations: classpath*:/mybatis-mappers/*
+  # MyBaits alias package scan path, this attribute can be used to register the alias of the class in the package. After registration, the class name can be directly used in the XML file corresponding to the Mapper instead of using the fully qualified class name.
+  type-aliases-package: com.ywh.cloudcommon.entity.example
+  # Automatic conversion of database table and entity class hump naming
+  configuration:
+    map-underscore-to-camel-case: true
+# eureka 配置
+eureka:
+  client:
+    service-url:
+      # 这个url的取什么名字都可以
+      defaultZone: http://localhost:8761/eureka/

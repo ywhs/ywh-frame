@@ -1,0 +1,18 @@
+server:
+  port: 8761
+# eureka configuration，configuring the registration service center
+eureka:
+  instance:
+    hostname: localhost
+  # Configure to turn off self-protection and configure the interval at which Eureka Server cleans up invalid nodes as needed. Production environment is not recommended to close
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 6000
+    peer-node-read-timeout-ms: 90000
+    response-cache-update-interval-ms: 3000
+  client:
+    # Indicate that you are not a client and do not self-register
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
