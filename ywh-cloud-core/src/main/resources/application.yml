@@ -6,7 +6,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: ywh-cloud-core
+    name: cloud-core
   http:
     encoding:
       enabled: true

@@ -1,0 +1,6 @@
+# eureka configuration
+eureka:
+  client:
+    service-url:
+      # Registration center url
+      defaultZone: http://localhost:8761/eureka/

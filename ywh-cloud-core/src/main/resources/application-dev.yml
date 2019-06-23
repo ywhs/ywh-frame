@@ -1,3 +1,9 @@
+# eureka
+eureka:
+  client:
+    service-url:
+      # 这个url的取什么名字都可以
+      defaultZone: http://localhost:8761/eureka/
 # 在这里我没有写driver-class-name: com.mysql.jdbc.Driver这个驱动被弃用了  使用新版com.mysql.cj.jdbc.Driver
 # 控制台提示说自动帮我们找相应的驱动，一般无需手动加载，所以我注释掉了
 spring:
@@ -51,7 +57,7 @@ spring:
           log-slow-sql: true
           slow-sql-millis: 2000
           db-type: mysql
-          # SQL合并 默认：false
+          # SQL merge Default: false
           merge-sql: false
         wall:
           config:
@@ -73,9 +79,4 @@ mybatis-plus:
   # Automatic conversion of database table and entity class hump naming
   configuration:
     map-underscore-to-camel-case: true
-# eureka 配置
-eureka:
-  client:
-    service-url:
-      # 这个url的取什么名字都可以
-      defaultZone: http://localhost:8761/eureka/
+

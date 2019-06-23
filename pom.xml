@@ -23,6 +23,8 @@
         <module>ywh-cloud-core</module>     <!-- 主要写代码服务 -->
         <module>ywh-cloud-eureka</module>   <!-- eureka注册中心 -->
         <module>ywh-cloud-common</module>   <!-- 微服务的基础服务模块 -->
+        <module>ywh-cloud-gateway</module>  <!-- 微服务的网关服务 -->
+        <module>ywh-cloud-auth</module>
 	</modules>
 
 
@@ -34,77 +36,6 @@
 	</properties>
 
 	<dependencies>
-
-        <!-- 引入fastjson依赖包 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.53</version>
-        </dependency>
-
-        <!-- io流的依赖 拥有快速读写，文件目录拷贝与删除等等，io的操作   目录与文件的监听等功能 -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
-        </dependency>
-
-        <!-- 对文件上传 下载的依赖 -->
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.3.3</version>
-        </dependency>
-
-        <!-- 提供了丰富的集合操作 -->
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
-        </dependency>
-
-        <!-- 提供了基本编码解码算法，如base64，md5,sha等 -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.11</version>
-        </dependency>
-
-        <!-- 丰富的工具类 如StringUtils -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-
-        <!-- 连接池 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-        <!-- freemarke引擎依赖引入 -->
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.28</version>
-        </dependency>
-
-        <!-- velocity引擎依赖引入 -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.7</version>
-        </dependency>
-
-        <!-- lombok的依赖 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-            <scope>provided</scope>
-        </dependency>
 
     </dependencies>
 
