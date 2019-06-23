@@ -7,7 +7,6 @@
         <groupId>com.ywh</groupId>
         <artifactId>springcloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <!-- 本模块 -->
     <artifactId>cloud-gateway</artifactId>
