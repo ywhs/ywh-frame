@@ -1,6 +1,7 @@
 package com.ywh.cloudcore.controller;
 
 
+import com.ywh.cloudcommon.util.Result;
 import com.ywh.cloudcore.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,12 @@ public class ExampleController{
      * @return 返回测试成功字符串
      */
     @GetMapping("test")
-    public String test(){
-        return exampleService.myException();
+    public Result test(){
+        return Result.successJson(exampleService.myException());
+    }
+
+    @GetMapping("test1")
+    public Result test1(){
+        return Result.successJson("成功了！！");
     }
 }

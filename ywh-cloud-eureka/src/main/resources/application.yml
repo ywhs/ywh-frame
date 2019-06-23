@@ -3,7 +3,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: ywh-cloud-eureka
+    name: cloud-eureka
   # global coding
   http:
     encoding:
@@ -14,4 +14,3 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-

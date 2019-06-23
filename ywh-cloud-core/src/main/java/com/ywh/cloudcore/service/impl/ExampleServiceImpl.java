@@ -2,7 +2,7 @@ package com.ywh.cloudcore.service.impl;
 
 
 import com.ywh.cloudcommon.entity.example.ExampleEntity;
-import com.ywh.cloudcommon.utils.MyExceptionUtil;
+import com.ywh.cloudcommon.util.MyExceptionUtils;
 import com.ywh.cloudcore.dao.ExampleDao;
 import com.ywh.cloudcore.service.ExampleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class ExampleServiceImpl implements ExampleService {
         try{
             i = 10 /0;
         }catch (Exception ex){
-            throw MyExceptionUtil.mxe("出错了",ex);
+            throw MyExceptionUtils.mxe("出错了",ex);
         }
         return "没有进行拦截，失败了" + i;
     }

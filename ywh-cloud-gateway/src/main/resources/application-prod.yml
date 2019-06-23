@@ -4,3 +4,11 @@ eureka:
     service-url:
       # Registration center url
       defaultZone: http://localhost:8761/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /cloud-core/**
+      serviceId: cloud-core
+    api-b:
+      path: /cloud-auth/**
+      serviceId: cloud-auth

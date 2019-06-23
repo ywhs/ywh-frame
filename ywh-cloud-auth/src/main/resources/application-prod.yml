@@ -4,3 +4,26 @@ eureka:
     service-url:
       # Registration center url
       defaultZone: http://localhost:8761/eureka/
+spring:
+  redis:
+    # Redis database index (default is 0)
+    database: 0
+    # Redis server address
+    host: 127.0.0.1
+    # Redis server connection port
+    port: 6379
+    # Redis server connection password (default is empty) Do not write this attribute if there is no configuration password.
+    password: 123456
+    # connection pool
+    lettuce:
+      pool:
+        # Connection pool maximum number of connections (use negative values to indicate no limit)
+        max-active: 8
+        # Connection pool maximum blocking wait time (use negative values to indicate no limit)
+        max-wait: 60000
+        # The largest idle connection in the connection pool
+        max-idle: 8
+        # The smallest idle connection in the connection pool
+        min-idle: 1
+    # Connection timeout (ms)
+    timeout: 10000

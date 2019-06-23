@@ -8,6 +8,7 @@
         <artifactId>springcloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <!-- 本模块 -->
     <artifactId>cloud-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -52,6 +53,28 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- docker 打包插件-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <configuration>
+                    <!--镜像的名字-->
+                    <imageName>${project.artifactId}</imageName>
+                    <!--Dockerfile文件的位置-->
+                    <dockerDirectory>${project.build.outputDirectory}</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <!--target目录的位置-->
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <!--打包项目后的jar包名字-->
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

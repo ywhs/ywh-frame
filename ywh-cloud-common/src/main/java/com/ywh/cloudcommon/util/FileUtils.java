@@ -1,4 +1,4 @@
-package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
+package com.ywh.cloudcommon.util;//package com.ywh.corecommon.util;
 //
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
 ///**
 // * CreateTime: 2018-12-03 18:15
 // * ClassName: FileUtils
-// * Package: com.xiyi.common.utils
+// * Package: com.xiyi.common.util
 // * Describe:
 // * 文件上传下载工具类
 // *
@@ -61,7 +61,7 @@ package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
 //            return response;
 //        } catch (IOException e) {
 //            e.printStackTrace();
-//            throw MyExceptionUtil.mxe("上传文件失败！",e);
+//            throw MyExceptionUtils.mxe("上传文件失败！",e);
 //        }
 //    }
 //

@@ -20,7 +20,7 @@ import java.util.Scanner;
 /**
  * CreateTime: 2019-06-16 20:46
  * ClassName: CodeGenerator
- * Package: com.ywh.common.utils
+ * Package: com.ywh.common.util
  * Describe:
  * MybatisPlus的代码生成器
  *

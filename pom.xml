@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
+		<version>2.1.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>com.ywh</groupId>
 	<artifactId>springcloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<!-- 父pom.xml中的必须为pom类型 便于子模块之间传递依赖 -->
+	<!-- 父pom.xml中的必须为pom类型 -->
 	<packaging>pom</packaging>
 
 	<name>springcloud</name>
@@ -24,7 +24,7 @@
         <module>ywh-cloud-eureka</module>   <!-- eureka注册中心 -->
         <module>ywh-cloud-common</module>   <!-- 微服务的基础服务模块 -->
         <module>ywh-cloud-gateway</module>  <!-- 微服务的网关服务 -->
-        <module>ywh-cloud-auth</module>
+        <module>ywh-cloud-auth</module>     <!-- 微服务的权限认证服务 -->
 	</modules>
 
 
@@ -32,7 +32,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
 	</properties>
 
 	<dependencies>

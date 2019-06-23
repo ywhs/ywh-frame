@@ -1,4 +1,4 @@
-package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
+package com.ywh.cloudcommon.util;//package com.ywh.corecommon.util;
 //
 //import com.alibaba.fastjson.JSONObject;
 //
@@ -13,7 +13,7 @@ package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
 ///**
 // * CreateTime: 2018-12-03 12:42
 // * ClassName: HttpUtils
-// * Package: com.xiyi.common.utils
+// * Package: com.xiyi.common.util
 // * Describe:
 // * http工具类
 // *
@@ -55,7 +55,7 @@ package com.ywh.cloudcommon.utils;//package com.ywh.corecommon.utils;
 //            }
 //            return JSONObject.parseObject(buffer.toString());
 //        }catch (IOException ex){
-//            throw MyExceptionUtil.mxe("获取微信接口失败了！",ex);
+//            throw MyExceptionUtils.mxe("获取微信接口失败了！",ex);
 //        }finally{
 //            try {
 //                assert inputStreamReader != null;

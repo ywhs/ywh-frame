@@ -51,7 +51,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--如果是线上打包部署，把上面的注释掉，把下面的打开-->
+            <!-- docker 打包插件-->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>

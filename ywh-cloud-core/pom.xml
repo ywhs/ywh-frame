@@ -21,6 +21,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
     <dependencies>
 
+        <!-- 本项目自定义微服务基础模块 -->
+        <dependency>
+            <groupId>com.ywh</groupId>
+            <artifactId>cloud-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- 引入web依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,13 +45,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- 本项目自定义微服务基础模块 -->
-        <dependency>
-            <groupId>com.ywh</groupId>
-            <artifactId>cloud-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
         <!-- mybatisPlus的依赖 -->
@@ -87,7 +87,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 </configuration>
             </plugin>
 
-            <!--如果是线上打包部署，把上面的注释掉，把下面的打开-->
+            <!-- docker 打包插件-->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>

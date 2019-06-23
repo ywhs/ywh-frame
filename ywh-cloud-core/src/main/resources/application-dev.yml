@@ -2,11 +2,34 @@
 eureka:
   client:
     service-url:
-      # 这个url的取什么名字都可以
       defaultZone: http://localhost:8761/eureka/
 # 在这里我没有写driver-class-name: com.mysql.jdbc.Driver这个驱动被弃用了  使用新版com.mysql.cj.jdbc.Driver
 # 控制台提示说自动帮我们找相应的驱动，一般无需手动加载，所以我注释掉了
 spring:
+  # redis
+  redis:
+    # Redis database index (default is 0)
+    database: 0
+    # Redis server address
+    host: 127.0.0.1
+    # Redis server connection port
+    port: 6379
+    # Redis server connection password (default is empty) Do not write this attribute if there is no configuration password.
+    password: 123456
+    # connection pool
+    lettuce:
+      pool:
+        # Connection pool maximum number of connections (use negative values to indicate no limit)
+        max-active: 8
+        # Connection pool maximum blocking wait time (use negative values to indicate no limit)
+        max-wait: 60000
+        # The largest idle connection in the connection pool
+        max-idle: 8
+        # The smallest idle connection in the connection pool
+        min-idle: 1
+    # Connection timeout (ms)
+    timeout: 10000
+  # mysql
   datasource:
     # mysql database address
     #    url: jdbc:mysql://127.0.0.1:3306/ywh_code?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8

@@ -9,7 +9,7 @@ eureka:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 6000
     peer-node-read-timeout-ms: 90000
-    response-cache-update-interval-ms: 3000
+    response-cache-update-interval-ms: 5000
   client:
     # Indicate that you are not a client and do not self-register
     register-with-eureka: false
