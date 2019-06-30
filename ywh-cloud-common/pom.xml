@@ -34,6 +34,20 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 配置spring元数据 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>2.1.5.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- security -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-security</artifactId>
+        </dependency>
+
         <!-- redis依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

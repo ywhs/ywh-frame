@@ -15,7 +15,9 @@ import java.util.Map;
  *
  * @author YWH
  */
-public class Result{
+public class Result implements Serializable{
+
+    private static final long serialVersionUID = 1348172152215944560L;
 
 
     /**
@@ -36,7 +38,7 @@ public class Result{
     /**
      * 返回给前端的数据
      */
-    private Map<String, Object> extend = new HashMap<String ,Object>();
+    private Map<String, Object> extend = new HashMap<>();
 
     /**
      * 成功返回的json封装体
