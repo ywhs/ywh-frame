@@ -37,16 +37,16 @@ ywh个人学习开发框架，这个学习项目可以让你了解到如何从0-
 - 前端启动服务
 ```bash
 # 克隆前端项目
-https://github.com/ywhs/ywh-vue-admin.git
+$ git clone https://github.com/ywhs/ywh-vue-admin.git
 
 # 进入前端项目目录安装依赖，
-npm install
+$ npm install
 
 # 建议不要用 cnpm 安装 会有各种诡异的bug 可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
+$ npm install --registry=https://registry.npm.taobao.org
 
 # 启动前端服务
-npm run dev
+$ npm run dev
 
 ```
 浏览器访问http://localhost:9527
@@ -58,7 +58,7 @@ npm run dev
 ```bash
 
 # 克隆后端项目
-git clone https://github.com/ywhs/ywh-frame.git
+$ git clone https://github.com/ywhs/ywh-frame.git
 
 # 使用IDEA导入项目，选择maven导入
 
