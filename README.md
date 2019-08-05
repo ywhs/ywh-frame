@@ -23,7 +23,7 @@ ywh个人学习开发框架，这个学习项目可以让你了解到如何从0-
 ## 环境
 
 - JDK1.8
-- mysql
+- mysql8.0,5.7应该也可以，如果不可以则使用8.0
 - Redis  ====> 安装参考笔记:[Liunx安装Redis(docker)](https://juejin.im/post/5cad7187e51d456e651b644c#heading-9) 
 - node.js ====> 安装参考笔记:[node.js 安装与环境变量配置](https://blog.csdn.net/qq_36956154/article/details/79468078)
 
