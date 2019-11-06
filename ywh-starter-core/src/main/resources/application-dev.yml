@@ -56,6 +56,7 @@ spring:
           merge-sql: false
         wall:
           config:
+            # 是否允许delete语句
             delete-allow: false
             drop-table-allow: false
           enabled: true
