@@ -57,7 +57,7 @@ spring:
         wall:
           config:
             # 是否允许delete语句
-            delete-allow: false
+            delete-allow: true
             drop-table-allow: false
           enabled: true
           db-type: mysql
