@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.53</version>
+            <version>1.2.83</version>
         </dependency>
 
         <!-- io流的依赖 拥有快速读写，文件目录拷贝与删除等等，io的操作   目录与文件的监听等功能 -->
